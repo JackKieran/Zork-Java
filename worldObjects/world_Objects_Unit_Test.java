@@ -14,8 +14,11 @@ public class world_Objects_Unit_Test
 		
 		assertEquals(wO.getName(), "name");
 		assertEquals(wO.getDescription(), "description");
-		assertTrue(wO.getWeight() == 10.0f);
-		assertTrue(wO.getValue() == 3.0f);
+		assertEquals(wO.getWeight(), 10.0f, 0.0f);
+		assertEquals(wO.getValue(), 3.0f, 0.0f);
+		
+		assertEquals(wO, new WorldObject("name", "description", 10.0f, 3.0f));
+		assertEquals(wO.hashCode(), new WorldObject("name", "description", 10.0f, 3.0f).hashCode());
 	}
 
 	@Test
