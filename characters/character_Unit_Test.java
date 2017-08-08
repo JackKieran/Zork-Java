@@ -27,6 +27,11 @@ public class character_Unit_Test {
 		assertEquals(paul.getStats()[0], 20.0f, 0.0f);
 		assertEquals(paul.getStats()[1], 2.0f, 0.0f);
 		assertEquals(paul.getStats()[2], 1.0f, 0.0f);
+		
+		assertEquals(paul.popInventory(), new Key("Red Key", "This is the Red Key"));
+		assertEquals(paul.popInventory(), null);
+		paul.addObjectToInventory(new Key("Red Key", "This is the Red Key"));
+		assertEquals(paul.popInventory(), new Key("Red Key", "This is the Red Key"));
 	}
 
 }

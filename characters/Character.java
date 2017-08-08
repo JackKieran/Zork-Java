@@ -33,27 +33,46 @@ public class Character
 		this.inventory = inventory;
 	}
 
-	
+	/**
+	 * Returns the Character's name.
+	 * @return String representing the Character's name
+	 */
 	public String getName() 
 	{
 		return this.name;
 	}
 
+	/**
+	 * Returns a description of the Character.
+	 * @return String representing the Character's description
+	 */
 	public String getBio()
 	{
 		return this.bio;
 	}
 	
+	/**
+	 * Returns the Character's health value.
+	 * @return float representing the Character's health value
+	 */
 	public float getHealth()
 	{
 		return this.health;
 	}
 	
+	/**
+	 * Returns the Character's defense value.
+	 * @return float representing the Character's attack value
+	 */
 	public float getAttack()
 	{
 		return this.attack;
 	}
 	
+	/**
+	 * Returns the Character's defense value.
+	 * @return float representing the Character's defense value
+	 */
 	public float getDefense()
 	{
 		return this.defense;
@@ -68,4 +87,31 @@ public class Character
 	{
 		return new float[]{this.health, this.attack, this.defense};
 	}
+	
+	/**
+	 *Returns the first WorldObject listed in the Inventory and removes it from the ArrayList.
+	 * @return The WorldObject at index 0 of the Inventory
+	 */
+	public WorldObject popInventory()
+	{
+		WorldObject result = null;
+		
+		if(this.inventory.size() > 0)
+		{
+			result = this.inventory.get(0);
+			this.inventory.remove(0);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Adds the given WorldObject to the Inventory.
+	 * @param WorldObject to add to the Inventory
+	 */
+	public void addObjectToInventory(WorldObject object)
+	{
+		this.inventory.add(object);
+	}
+	
 }
