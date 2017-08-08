@@ -88,6 +88,27 @@ public class Character
 		return new float[]{this.health, this.attack, this.defense};
 	}
 	
+	
+	public int takeDamage(float enemyDamage)
+	{
+		int result = 1;
+		
+		float calculatedDamage = enemyDamage - this.defense;
+		
+		if(calculatedDamage > 0.0f)
+		{
+			this.health -= calculatedDamage;
+			if(this.health <= 0)
+				result = -1;
+		}
+		
+		else
+			result = 0;
+		
+		return result;
+	}
+	
+	
 	/**
 	 *Returns the first WorldObject listed in the Inventory and removes it from the ArrayList.
 	 * @return The WorldObject at index 0 of the Inventory

@@ -32,6 +32,18 @@ public class character_Unit_Test {
 		assertEquals(paul.popInventory(), null);
 		paul.addObjectToInventory(new Key("Red Key", "This is the Red Key"));
 		assertEquals(paul.popInventory(), new Key("Red Key", "This is the Red Key"));
+		
+		assertEquals(paul.takeDamage(10.0f), 1);
+		assertEquals(paul.getHealth(), 11.0f, 0.0f);
+		assertEquals(paul.takeDamage(0.0f), 0);
+		assertEquals(paul.takeDamage(12.0f), -1);
 	}
 
+	@Test
+	public void playerTest()
+	{
+		Player player = new Player("player_name", "player_description", 20.0f, 5.0f, 2.0f);
+		assertTrue(player instanceof Character);
+	}
+	
 }
