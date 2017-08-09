@@ -37,6 +37,10 @@ public class character_Unit_Test {
 		assertEquals(paul.getHealth(), 11.0f, 0.0f);
 		assertEquals(paul.takeDamage(0.0f), 0);
 		assertEquals(paul.takeDamage(12.0f), -1);
+		
+		Character attackTarget = new Character("Dummy Target", "Dummy Target for practicing attacking", 10.0f, 0.0f, 0.0f);
+		assertEquals(paul.attack(attackTarget), 1);
+		assertEquals(attackTarget.attack(paul), 0);
 	}
 
 	@Test
