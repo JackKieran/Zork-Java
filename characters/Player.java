@@ -6,4 +6,9 @@ public class Player extends Character
 	{
 		super(name, bio, health, attack, defence);
 	}
+	
+	public void pickpocket(Character target)
+	{
+		this.addObjectToInventory(target.popInventory());
+	}
 }

@@ -44,6 +44,12 @@ public class character_Unit_Test {
 	{
 		Player player = new Player("player_name", "player_description", 20.0f, 5.0f, 2.0f);
 		assertTrue(player instanceof Character);
+
+		Character target = new Character("target", "Pickpocket target", 10.0f, 1.0f, 0.0f);
+		target.addObjectToInventory(new Key("Red Key", "This is the Red Key"));
+		assertEquals(player.popInventory(), null);
+		player.pickpocket(target);
+		assertEquals(player.popInventory(), new Key("Red Key", "This is the Red Key"));
 	}
 	
 }
