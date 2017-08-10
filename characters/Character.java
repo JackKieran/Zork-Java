@@ -108,6 +108,11 @@ public class Character
 		return result;
 	}
 	
+	public int attack(Character enemy)
+	{
+		int result = enemy.takeDamage(this.attack);
+		return result;
+	}
 	
 	/**
 	 *Returns the first WorldObject listed in the Inventory and removes it from the ArrayList.
