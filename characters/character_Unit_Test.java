@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import enemies.Enemy;
 import worldObjects.*;
 
 public class character_Unit_Test {
@@ -56,4 +57,23 @@ public class character_Unit_Test {
 		assertEquals(player.popInventory(), new Key("Red Key", "This is the Red Key"));
 	}
 	
+	@Test
+	public void enemyTest()
+	{
+		Enemy enemy = new Enemy("Bandit", "Bandit enemy for testing purposes", 15.0f, 4.0f, 0.0f);
+		
+		assertTrue(enemy instanceof Character);
+		
+		assertEquals(enemy.getState(), "UNAWARE");
+		
+		enemy.detectPlayer();
+		assertEquals(enemy.getState(), "ALERTED");
+		
+		enemy.losePlayer();
+		assertEquals(enemy.getState(), "UNAWARE");
+		
+		enemy.takeDamage(15.0f);
+		assertTrue(enemy.isDead());
+		assertEquals(enemy.getState(), "DEAD");
+	}
 }

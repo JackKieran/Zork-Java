@@ -4,11 +4,6 @@ import java.util.ArrayList;
 
 import worldObjects.WorldObject;
 
-/**
- * 
- * @author Jack
- *
- */
 public class Character 
 {
 	private String name;
