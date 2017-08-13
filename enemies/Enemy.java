@@ -9,7 +9,12 @@ public class Enemy extends Character
 	public Enemy(String name, String bio, float health, float attack, float defense)
 	{
 		super(name, bio, health, attack, defense);
-		this.state = "UNAWARE";
+		
+		if(isDead())
+			this.state = "DEAD";
+		
+		else
+			this.state = "UNAWARE";
 	}
 	
 	public String getState()
@@ -43,7 +48,10 @@ public class Enemy extends Character
 	{
 		int result = super.takeDamage(enemyDamage);
 		
-		if(result == -1)
+		if(result == 1)
+			changeStateTo("ALERTED");
+		
+		else if(result == -1)
 			changeStateTo("DEAD");
 		
 		return result;
