@@ -15,7 +15,7 @@ public class CharacterUnitTest
 	{
 		Character withoutInventory = new Character("without", "Character without an inventory", 1.0f, 1.0f, 1.0f);
 		
-		assertEquals(null, withoutInventory.popInventory());
+		assertEquals(null, withoutInventory.getTopOfInventory());
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class CharacterUnitTest
 		ArrayList<WorldObject> inventory = new ArrayList<WorldObject>();
 		Character withEmptyInventory = new Character("withEmpty", "Character with an empty inventory", 1.0f, 1.0f, 1.0f, inventory);
 		
-		assertEquals(null, withEmptyInventory.popInventory());
+		assertEquals(null, withEmptyInventory.getTopOfInventory());
 	}
 	
 	@Test
@@ -36,7 +36,6 @@ public class CharacterUnitTest
 		Character withFilledInventory = new Character("withFilled", "Character with a filled inventory", 1.0f, 1.0f, 1.0f, inventory);
 	
 		assertEquals(worldObject, withFilledInventory.popInventory());
-		assertEquals(null, withFilledInventory.popInventory());
 	}
 	
 	@Test
@@ -47,8 +46,7 @@ public class CharacterUnitTest
 		WorldObject worldObject = new WorldObject("worldObject", "worldObject to add to inventory", 1.0f, 1.0f);
 		addedToInventory.addObjectToInventory(worldObject);
 		
-		assertEquals(worldObject, addedToInventory.popInventory());
-		assertEquals(null, addedToInventory.popInventory());
+		assertEquals(worldObject, addedToInventory.getTopOfInventory());
 	}
 	
 	

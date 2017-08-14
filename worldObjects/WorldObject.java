@@ -15,7 +15,6 @@ public class WorldObject
 		this.value = value;
 	}
 	
-	
 	public String getName()
 	{
 		return this.name;
@@ -82,5 +81,11 @@ public class WorldObject
 		
 		
 		return result;
+	}
+	
+	@Override
+	public WorldObject clone()
+	{
+		return new WorldObject(this.name, this.description, this.weight, this.value);
 	}
 }

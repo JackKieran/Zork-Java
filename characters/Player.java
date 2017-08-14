@@ -11,4 +11,17 @@ public class Player extends Character
 	{
 		this.addObjectToInventory(target.popInventory());
 	}
+	
+	public String scan(Character target)
+	{
+		String result = null;
+		
+		if(target.hasNonEmptyInventory())
+			result = target.getTopOfInventory().getClass().getSimpleName();
+		
+		else
+			result = "There is nothing in the " + target.getName() + "'s pocket";
+		
+		return result;
+	}
 }

@@ -114,10 +114,10 @@ public class Character
 	 * @return The WorldObject at index 0 of the Inventory
 	 */
 	public WorldObject popInventory()
-	{
+	{		
 		WorldObject result = null;
 		
-		if(this.inventory.size() > 0)
+		if(this.hasNonEmptyInventory())
 		{
 			result = this.inventory.get(0);
 			this.inventory.remove(0);
@@ -133,6 +133,33 @@ public class Character
 	public void addObjectToInventory(WorldObject object)
 	{
 		this.inventory.add(object);
+		cleanInventory();
 	}
 	
+	private void cleanInventory()
+	{
+		for(int inventoryCounter = 0; inventoryCounter < this.inventory.size(); inventoryCounter++)
+		{
+			if(this.inventory.get(inventoryCounter) == null)
+			{
+				inventory.remove(inventoryCounter);
+				inventoryCounter--;
+			}
+		}
+	}
+	
+	public boolean hasNonEmptyInventory()
+	{
+		return this.inventory.size() > 0;
+	}
+	
+	public WorldObject getTopOfInventory()
+	{
+		WorldObject result = null;
+		
+		if(this.hasNonEmptyInventory())
+			result = this.inventory.get(0).clone();
+		
+		return result;
+	}
 }
