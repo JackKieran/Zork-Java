@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class EnemyTest 
+public class EnemyUnitTest 
 {
 	@Test
 	public void takeDamageStateUnchanged()

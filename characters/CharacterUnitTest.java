@@ -4,13 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import enemies.Enemy;
 import worldObjects.*;
 
-public class CharacterTest 
+public class CharacterUnitTest 
 {
 	@Test
 	public void popInventoryWithout()
